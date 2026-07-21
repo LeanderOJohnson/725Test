@@ -8,14 +8,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 40px;
+  height: 400px;
   border: none;
   border-radius: var(--radius-full);          /* 9999px — pill/circle */
   background: var(--color-yellow-50);         /* #fcd34d */
   color: var(--color-yellow-90);              /* #806c04 */
   font-family: var(--font-primary);
   font-size: var(--text-body-size);           /* 14px */
-  font-weight: 600;
+  font-weight: 400;
   font-variant-numeric: tabular-nums;
   cursor: pointer;
   transition: background 120ms ease;
