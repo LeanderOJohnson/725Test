@@ -1,0 +1,40 @@
+/* ============================================================
+   Flux Design System — Spacing, Radius & Shadow Tokens
+   Base unit 4px. Valid spacing ONLY: 0,2,4,8,12,16,20,24,32,48.
+   Gaps in the scale are intentional — do not add values.
+   ============================================================ */
+
+:root {
+  /* ---------- PRIMITIVE SPACING ---------- */
+  --spacing-0: 0px;
+  --spacing-2: 2px;   /* tags, chips */
+  --spacing-4: 4px;   /* icon + label gap */
+  --spacing-8: 8px;   /* default gap between elements */
+  --spacing-12: 12px; /* filter gaps, form fields */
+  --spacing-16: 16px; /* card content, gap between sections, page margin L/R */
+  --spacing-20: 20px; /* section gaps */
+  --spacing-24: 24px; /* card / section padding */
+  --spacing-32: 32px; /* page padding, gap above footer */
+  --spacing-48: 48px; /* structural separators — USE SPARINGLY */
+
+  /* ---------- SEMANTIC SPACING (t-shirt) ---------- */
+  --space-xs: var(--spacing-4);   /* tight inline gaps */
+  --space-sm: var(--spacing-8);   /* between related elements */
+  --space-md: var(--spacing-16);  /* gap within/between sections; page margin */
+  --space-lg: var(--spacing-24);  /* section internal padding, all sides */
+  --space-xl: var(--spacing-32);  /* gap above footer */
+  --space-2xl: var(--spacing-48); /* USE SPARINGLY */
+
+  /* ---------- BORDER RADIUS ---------- */
+  --radius-none: 0px;
+  --radius-xsmall: 3px; /* inline selects, micro badges */
+  --radius-small: 4px;  /* buttons, compact components, inner corners */
+  --radius-medium: 8px; /* inputs, selects, search, most components */
+  --radius-large: 12px; /* cards, large containers */
+  --radius-full: 9999px; /* pills, badges */
+
+  /* ---------- SHADOWS ---------- */
+  --shadow-card: 0px 4px 4px rgba(58, 65, 75, 0.08);    /* elevated cards, dropdowns, segmented indicator */
+  --shadow-thumb: 0px 2px 4px rgba(0, 0, 0, 0.16);      /* slider thumb */
+  --shadow-toolbar: 0px 4px 4px rgba(58, 65, 75, 0.16); /* floating toolbar */
+}

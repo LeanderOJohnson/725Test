@@ -1,0 +1,7 @@
+/* Flux Design System — Webfonts
+   Primary: IBM Plex Sans (UI text).
+   Mono: IBM Plex Mono (financial data — metric values, currency, rates).
+   Loaded from Google Fonts — Luma's real brand fonts, no substitution. */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');

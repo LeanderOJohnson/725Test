@@ -1,0 +1,60 @@
+/* ============================================================
+   RoundYellowButton — Flux Design System
+   Tokens: colors.css · spacing.css · typography.css
+   ============================================================ */
+
+/* Shared base */
+.ryb {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border: none;
+  border-radius: var(--radius-full);          /* 9999px — pill/circle */
+  background: var(--color-yellow-50);         /* #fcd34d */
+  color: var(--color-yellow-90);              /* #806c04 */
+  font-family: var(--font-primary);
+  font-size: var(--text-body-size);           /* 14px */
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  transition: background 120ms ease;
+  /* Reset browser defaults */
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.ryb:hover:not(:disabled) {
+  background: var(--color-yellow-20);         /* #f6ec9e */
+}
+
+.ryb:focus-visible {
+  outline: 2px solid var(--color-stroke-focus);
+  outline-offset: 2px;
+}
+
+.ryb:disabled {
+  background: var(--color-action-disabled);   /* neutral-20 */
+  color: var(--color-text-disabled);          /* neutral-50 */
+  cursor: not-allowed;
+}
+
+/* Pill label variant */
+.ryb--label {
+  gap: var(--spacing-8);
+  padding: 0 var(--spacing-24);              /* 0 24px */
+}
+
+/* Icon-only circle variant */
+.ryb--icon-only {
+  width: 40px;
+  padding: 0;
+}
+
+/* Leading icon inside label button */
+.ryb__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}

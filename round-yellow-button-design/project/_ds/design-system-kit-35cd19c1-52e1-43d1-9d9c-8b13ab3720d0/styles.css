@@ -1,0 +1,13 @@
+/* ============================================================
+   Flux Design System — Global CSS entry point
+   Luma fintech. Consumers link only this file.
+   Import order: fonts → tokens → base.
+   ============================================================ */
+
+@import "./tokens/fonts.css";
+@import "./tokens/colors.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";
+@import "./tokens/base.css";
+@import "./tokens/components.css";
+@import "./tokens/components-layout.css";
