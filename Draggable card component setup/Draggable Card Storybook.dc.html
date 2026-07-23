@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/design-system-kit-35cd19c1-52e1-43d1-9d9c-8b13ab3720d0/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/design-system-kit-35cd19c1-52e1-43d1-9d9c-8b13ab3720d0/tokens/colors.css">
+<link rel="stylesheet" href="_ds/design-system-kit-35cd19c1-52e1-43d1-9d9c-8b13ab3720d0/tokens/typography.css">
+<link rel="stylesheet" href="_ds/design-system-kit-35cd19c1-52e1-43d1-9d9c-8b13ab3720d0/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/design-system-kit-35cd19c1-52e1-43d1-9d9c-8b13ab3720d0/tokens/base.css">
+<link rel="stylesheet" href="_ds/design-system-kit-35cd19c1-52e1-43d1-9d9c-8b13ab3720d0/tokens/components.css">
+<link rel="stylesheet" href="_ds/design-system-kit-35cd19c1-52e1-43d1-9d9c-8b13ab3720d0/tokens/components-layout.css">
+<link rel="stylesheet" href="_ds/design-system-kit-35cd19c1-52e1-43d1-9d9c-8b13ab3720d0/styles.css">
+<script src="_ds/design-system-kit-35cd19c1-52e1-43d1-9d9c-8b13ab3720d0/_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background: var(--color-surface-primary); }
+  a { color: var(--color-blue-60); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .sb-cap { font-size: 12px; color: var(--color-text-hint); }
+  .sb-code { font-family: var(--font-mono); font-size: 11px; color: var(--color-text-hint); font-variant-numeric: tabular-nums; }
+</style>
+</helmet>
+<div style="max-width:1080px;margin:0 auto;padding:40px 32px 64px;display:flex;flex-direction:column;gap:32px;">
+
+  <!-- Header -->
+  <header style="display:flex;flex-direction:column;gap:8px;">
+    <span class="sb-code" style="letter-spacing:.06em;">LAYOUT / COMPONENT LIBRARY</span>
+    <h1 style="margin:0;font-size:30px;font-weight:600;color:var(--color-text-body);">Draggable Card</h1>
+    <p style="margin:0;max-width:640px;font-size:15px;line-height:22px;color:var(--color-text-hint);">A compact, draggable palette item used in the Product Sandbox component library. Grab it by the grip to drag onto a build canvas, or use the inline actions to edit or add it. Actions are fully configurable.</p>
+  </header>
+
+  <!-- States -->
+  <section style="background:var(--color-surface-secondary);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:20px;">
+    <div style="display:flex;flex-direction:column;gap:4px;">
+      <h2 style="margin:0;font-size:18px;font-weight:600;color:var(--color-text-body);">States</h2>
+      <p class="sb-cap" style="margin:0;">Visual states driven by the <span class="sb-code">state</span> prop. Default is also interactive — try dragging it.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;">
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span class="sb-cap">Default</span>
+        <dc-import name="Draggable Card" title="Cap Rate Sleeve" meta="Structured · 3 fields" hint-size="100%,58px"></dc-import>
+        <span class="sb-code">state="default"</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span class="sb-cap">Hover</span>
+        <dc-import name="Draggable Card" title="Cap Rate Sleeve" meta="Structured · 3 fields" state="hover" hint-size="100%,58px"></dc-import>
+        <span class="sb-code">state="hover"</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span class="sb-cap">Dragging</span>
+        <dc-import name="Draggable Card" title="Cap Rate Sleeve" meta="Structured · 3 fields" state="dragging" hint-size="100%,58px"></dc-import>
+        <span class="sb-code">state="dragging"</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span class="sb-cap">Selected</span>
+        <dc-import name="Draggable Card" title="Cap Rate Sleeve" meta="Structured · 3 fields" state="selected" hint-size="100%,58px"></dc-import>
+        <span class="sb-code">state="selected"</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span class="sb-cap">Disabled</span>
+        <dc-import name="Draggable Card" title="Cap Rate Sleeve" meta="Structured · 3 fields" state="disabled" hint-size="100%,58px"></dc-import>
+        <span class="sb-code">state="disabled"</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Configurations -->
+  <section style="background:var(--color-surface-secondary);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:20px;">
+    <div style="display:flex;flex-direction:column;gap:4px;">
+      <h2 style="margin:0;font-size:18px;font-weight:600;color:var(--color-text-body);">Configurations</h2>
+      <p class="sb-cap" style="margin:0;">Toggle the grip and each icon-button action independently. Buttons use the design-system <span class="sb-code">Button</span> (icon-only).</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;">
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span class="sb-cap">Edit + Add (default)</span>
+        <dc-import name="Draggable Card" title="Income Rider" meta="Annuity · 5 fields" hint-size="100%,58px"></dc-import>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span class="sb-cap">Add only</span>
+        <dc-import name="Draggable Card" title="Income Rider" meta="Annuity · 5 fields" show-edit="{{ false }}" hint-size="100%,58px"></dc-import>
+        <span class="sb-code">showEdit={false}</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span class="sb-cap">Edit only</span>
+        <dc-import name="Draggable Card" title="Income Rider" meta="Annuity · 5 fields" show-add="{{ false }}" hint-size="100%,58px"></dc-import>
+        <span class="sb-code">showAdd={false}</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span class="sb-cap">No actions</span>
+        <dc-import name="Draggable Card" title="Income Rider" meta="Annuity · 5 fields" show-add="{{ false }}" show-edit="{{ false }}" hint-size="100%,58px"></dc-import>
+        <span class="sb-code">showAdd={false}</span><span class="sb-code">showEdit={false}</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span class="sb-cap">No grip</span>
+        <dc-import name="Draggable Card" title="Income Rider" meta="Annuity · 5 fields" show-grip="{{ false }}" hint-size="100%,58px"></dc-import>
+        <span class="sb-code">showGrip={false}</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span class="sb-cap">Long title truncates</span>
+        <dc-import name="Draggable Card" title="Buffered Dual-Directional Index Sleeve" meta="Structured · 6 fields · edited 2d ago" hint-size="100%,58px"></dc-import>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span class="sb-cap">Remove from selection</span>
+        <dc-import name="Draggable Card" title="Income Rider" meta="Annuity · 5 fields" show-add="{{ false }}" show-edit="{{ false }}" show-remove="{{ true }}" hint-size="100%,58px"></dc-import>
+        <span class="sb-code">showRemove={true}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live demo -->
+  <section style="background:var(--color-surface-secondary);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:20px;">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <h2 style="margin:0;font-size:18px;font-weight:600;color:var(--color-text-body);">Live demo</h2>
+        <p class="sb-cap" style="margin:0;">Drag a card from the palette onto the build zone, or click its <span class="sb-code">+</span> to add it.</p>
+      </div>
+      <x-import component-from-global-scope="LumaFluxDesignSystem_35cd19.Button" variant="secondary" size="small" onClick="{{ clearBuilt }}" hint-size="auto,24px">Clear build ({{ buildCount }})</x-import>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <span class="sb-cap" style="font-weight:600;color:var(--color-text-body);">Component palette</span>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <sc-for list="{{ paletteItems }}" as="it" hint-placeholder-count="4">
+            <dc-import name="Draggable Card" title="{{ it.title }}" meta="{{ it.meta }}" on-add="{{ it.onAdd }}" on-edit="{{ it.onEdit }}" hint-size="100%,58px"></dc-import>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <span class="sb-cap" style="font-weight:600;color:var(--color-text-body);">Your build</span>
+        <div onDragOver="{{ onDragOver }}" onDragLeave="{{ onDragLeave }}" onDrop="{{ onDropZone }}" style="{{ dropStyle }}">
+          <sc-if value="{{ emptyBuilt }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:140px;text-align:center;color:var(--color-text-hint);">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3" stroke-dasharray="4 4"></rect><path d="M12 8v8M8 12h8"></path></svg>
+              <span class="sb-cap">Drop components here</span>
+            </div>
+          </sc-if>
+          <sc-if value="{{ hasBuilt }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <sc-for list="{{ built }}" as="b" hint-placeholder-count="0">
+                <dc-import name="Draggable Card" title="{{ b.title }}" meta="{{ b.meta }}" show-add="{{ false }}" show-edit="{{ false }}" show-remove="{{ true }}" on-remove="{{ b.onRemove }}" hint-size="100%,58px"></dc-import>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Props reference -->
+  <section style="background:var(--color-surface-secondary);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:16px;">
+    <h2 style="margin:0;font-size:18px;font-weight:600;color:var(--color-text-body);">Props</h2>
+    <div style="display:flex;flex-direction:column;">
+      <sc-for list="{{ propRows }}" as="r" hint-placeholder-count="8">
+        <div style="display:grid;grid-template-columns:160px 200px 1fr;gap:16px;padding:10px 0;border-bottom:1px solid var(--color-neutral-20);align-items:baseline;">
+          <span class="sb-code" style="color:var(--color-text-body);font-weight:600;">{{ r.name }}</span>
+          <span class="sb-code">{{ r.type }}</span>
+          <span style="font-size:13px;color:var(--color-text-hint);line-height:19px;">{{ r.desc }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { built: [] };
+  palette = [
+    { title: 'Cap Rate Sleeve', meta: 'Structured · 3 fields' },
+    { title: 'Income Rider', meta: 'Annuity · 5 fields' },
+    { title: 'Surrender Schedule', meta: 'Annuity · 7-yr' },
+    { title: 'Participation Sleeve', meta: 'Structured · 2 fields' },
+  ];
+  propRows = [
+    { name: 'title', type: 'string', desc: 'Primary label shown in body text weight.' },
+    { name: 'meta', type: 'string', desc: 'Secondary line in IBM Plex Mono with tabular figures.' },
+    { name: 'state', type: "'default' | 'hover' | …", desc: 'Visual state: default, hover, dragging, selected, disabled.' },
+    { name: 'draggable', type: 'boolean', desc: 'Enables HTML5 drag; sets grab cursor and dataTransfer payload.' },
+    { name: 'showGrip', type: 'boolean', desc: 'Show the 6-dot drag handle on the left.' },
+    { name: 'showEdit', type: 'boolean', desc: 'Show the edit (pencil) icon Button.' },
+    { name: 'showAdd', type: 'boolean', desc: 'Show the add (+) icon Button.' },
+    { name: 'onEdit / onAdd', type: '() => void', desc: 'Handlers fired by the respective icon Buttons.' },
+  ];
+  renderVals() {
+    const add = (item) => this.setState(s => ({ built: [...s.built, { ...item, id: Date.now() + Math.random() }] }));
+    const dragging = this.state.dragOver;
+    return {
+      paletteItems: this.palette.map(it => ({ ...it, onAdd: () => add(it), onEdit: () => {} })),
+      built: this.state.built.map(b => ({ ...b, onRemove: () => this.setState(s => ({ built: s.built.filter(x => x.id !== b.id) })) })),
+      hasBuilt: this.state.built.length > 0,
+      emptyBuilt: this.state.built.length === 0,
+      buildCount: this.state.built.length,
+      propRows: this.propRows,
+      onDragOver: (e) => { e.preventDefault(); if (!this.state.dragOver) this.setState({ dragOver: true }); },
+      onDragLeave: () => { if (this.state.dragOver) this.setState({ dragOver: false }); },
+      onDropZone: (e) => {
+        e.preventDefault();
+        let t = '';
+        try { t = e.dataTransfer.getData('text/plain'); } catch (_) {}
+        const match = this.palette.find(p => p.title === t) || { title: t || 'Component', meta: 'Dropped' };
+        this.setState({ dragOver: false });
+        add(match);
+      },
+      dropStyle: {
+        border: dragging ? '2px dashed var(--color-blue-50)' : '2px dashed var(--color-stroke-default)',
+        background: dragging ? 'var(--color-surface-info)' : 'var(--color-surface-tertiary)',
+        borderRadius: '10px',
+        padding: '12px',
+        minHeight: '164px',
+        transition: 'border-color .12s ease, background-color .12s ease',
+      },
+      clearBuilt: () => this.setState({ built: [] }),
+    };
+  }
+}
+</script>
+</body>
+</html>

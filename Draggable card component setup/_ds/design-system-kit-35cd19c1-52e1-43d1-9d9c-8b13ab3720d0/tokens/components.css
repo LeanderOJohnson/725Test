@@ -1,0 +1,501 @@
+/* ============================================================
+   Flux Design System — Component Styles
+   Real CSS classes for every primitive so :hover / :focus-visible
+   work and consumers get component styling for free. Components
+   reference these classes; all values come from tokens.
+   Prefix: .lf-  (Luma Flux)
+   ============================================================ */
+
+/* ---------------- BUTTON ---------------- */
+.lf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-8);
+  border: none;
+  border-radius: var(--radius-small);
+  font-family: var(--font-primary);
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-height);
+  font-weight: var(--text-body-weight);
+  cursor: pointer;
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.lf-btn:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--color-surface-tertiary), 0 0 0 4px var(--color-stroke-focus); }
+.lf-btn--medium { height: 32px; padding: 0 var(--spacing-12); }
+.lf-btn--small { height: 24px; padding: 0 var(--spacing-8); font-size: var(--text-body-sm-size); line-height: var(--text-body-sm-height); }
+.lf-btn--icon-only { padding: 0; aspect-ratio: 1 / 1; }
+.lf-btn--primary { background: var(--color-action-primary); color: var(--color-text-inverse); }
+.lf-btn--primary:hover { background: var(--color-action-tertiary); }
+.lf-btn--primary:active { background: var(--color-action-primary-active); }
+.lf-btn--secondary { background: var(--color-action-secondary); color: var(--color-action-primary); border: 1.5px solid var(--color-action-primary); }
+.lf-btn--secondary:hover { color: var(--color-action-tertiary); border-color: var(--color-action-tertiary); }
+.lf-btn--tertiary { background: transparent; color: var(--color-blue-90); }
+.lf-btn--tertiary:hover { color: var(--color-action-primary); }
+.lf-btn--ghost { background: var(--color-action-ghost); color: var(--color-text-body); }
+.lf-btn--ghost:hover { background: var(--color-action-ghost-hover); }
+.lf-btn--destructive { background: var(--color-red-10); color: var(--color-action-destructive); }
+.lf-btn--destructive:hover { background: var(--color-red-20); }
+.lf-btn--destructive:active { background: var(--color-red-60); color: var(--color-text-inverse); }
+.lf-btn:disabled { pointer-events: none; background: var(--color-action-disabled); color: var(--color-text-disabled); border: none; }
+.lf-btn__icon { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+/* ---------------- BADGE ---------------- */
+.lf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  padding: 2px var(--spacing-8);
+  font-size: var(--text-body-sm-size);
+  line-height: var(--text-body-sm-height);
+  font-weight: var(--text-body-sm-weight);
+  border-radius: 12px;
+}
+.lf-badge--rounded { border-radius: var(--radius-xsmall); }
+.lf-badge__icon { display: inline-flex; width: 16px; height: 16px; align-items: center; justify-content: center; }
+/* Categorical variants — surface + text are matched pairs (see Categorical tokens). */
+.lf-badge--dark-blue { background: var(--color-surface-categorical-dark-blue); color: var(--color-text-categorical-dark-blue); }
+.lf-badge--blue    { background: var(--color-surface-categorical-blue);   color: var(--color-text-categorical-blue); }
+.lf-badge--teal    { background: var(--color-teal-10);   color: var(--color-teal-60); }
+.lf-badge--green   { background: var(--color-surface-categorical-green);  color: var(--color-text-categorical-green); }
+.lf-badge--orange  { background: var(--color-orange-10); color: var(--color-orange-60); }
+.lf-badge--red     { background: var(--color-surface-categorical-red);    color: var(--color-text-categorical-red); }
+.lf-badge--purple  { background: var(--color-purple-10); color: var(--color-purple-60); }
+.lf-badge--yellow  { background: var(--color-yellow-10); color: var(--color-yellow-90); }
+/* Utility variants (not categorical pairs) */
+.lf-badge--info    { background: var(--color-blue-10);   color: var(--color-blue-60); }
+.lf-badge--neutral { background: var(--color-neutral-20);color: var(--color-neutral-90); }
+.lf-badge--dark    { background: var(--color-neutral-20);color: var(--color-blue-90); }
+/* Source-kit variant vocabulary (Badge.tsx v1.1) — aliases + additions */
+.lf-badge--success, .lf-badge--green-light { background: var(--color-green-10); color: var(--color-green-70); }
+.lf-badge--green-lighter { background: var(--color-green-20); color: var(--color-green-70); }
+.lf-badge--blue-light   { background: var(--color-blue-20); color: var(--color-neutral-90); }
+.lf-badge--blue-lighter { background: var(--color-blue-15); color: var(--color-blue-60); }
+.lf-badge--error   { background: var(--color-red-10); color: var(--color-red-60); }
+.lf-badge--warning { background: var(--color-yellow-10); color: var(--color-yellow-90); }
+.lf-badge--gray-dark  { background: var(--color-neutral-20); color: var(--color-blue-90); }
+.lf-badge--gray-light { background: var(--color-neutral-20); color: var(--color-neutral-90); }
+
+/* StatusDot */
+.lf-statusdot { display: inline-flex; align-items: center; gap: var(--spacing-8); font-size: var(--text-body-sm-size); line-height: var(--text-body-sm-height); color: var(--color-text-body); }
+.lf-statusdot__dot { width: 8px; height: 8px; border-radius: 50%; }
+.lf-statusdot__dot--active   { background: var(--color-green-70); }
+.lf-statusdot__dot--pending  { background: var(--color-yellow-50); }
+.lf-statusdot__dot--inactive { background: var(--color-neutral-50); }
+
+/* ---------------- CARD ---------------- */
+.lf-card {
+  background: var(--color-surface-tertiary);
+  border-radius: var(--radius-large);
+  border: 1px solid transparent;
+}
+/* Cards are borderless by default — the Neutral.00 fill separates them from the Surface.Secondary section beneath. Opt in to a stroke with --bordered only when a card sits on a same-color surface. */
+.lf-card--bordered { border-color: var(--color-stroke-default); }
+.lf-card--elevated { border-color: transparent; box-shadow: var(--shadow-card); }
+.lf-card--pad-none   { padding: 0; }
+.lf-card--pad-small  { padding: var(--spacing-16); }
+.lf-card--pad-medium { padding: var(--spacing-24); }
+.lf-card--pad-large  { padding: var(--spacing-32); }
+.lf-card__header { padding-bottom: var(--spacing-16); border-bottom: 1px solid var(--color-stroke-default); }
+.lf-card__title { font-size: var(--text-title-size); line-height: var(--text-title-height); font-weight: var(--text-title-weight); color: var(--color-text-body); margin: 0; }
+.lf-card__content { padding-top: var(--spacing-16); }
+
+/* ---------------- LABEL / VALUE PAIR ---------------- */
+/* Detail displays ("Min. premium — $100,000"). Label is body-regular, value body-bold; both Text.Body. */
+.lf-kv { display: flex; flex-direction: column; gap: var(--spacing-2); }
+.lf-kv--row { flex-direction: row; align-items: baseline; justify-content: space-between; gap: var(--spacing-16); }
+.lf-kv__label { font-size: var(--text-body-size); line-height: var(--text-body-height); font-weight: var(--text-body-weight); color: var(--color-text-body); }
+.lf-kv__value { font-size: var(--text-body-size); line-height: var(--text-body-height); font-weight: var(--text-body-bold-weight); color: var(--color-text-body); }
+
+/* ---------------- INPUT ---------------- */
+.lf-field { width: 100%; }
+.lf-label { display: block; margin-bottom: var(--spacing-4); font-size: var(--text-body-sm-size); line-height: var(--text-body-sm-height); font-weight: var(--text-body-sm-weight); color: var(--color-text-body); }
+.lf-label__req { color: var(--color-text-error); margin-left: 2px; }
+.lf-desc { margin: calc(-1 * var(--spacing-2)) 0 var(--spacing-8); font-size: var(--text-body-sm-size); line-height: var(--text-body-sm-height); color: var(--color-text-hint); max-width: 60ch; }
+.lf-input-wrap { position: relative; display: flex; align-items: center; }
+.lf-input {
+  width: 100%;
+  height: 32px;
+  padding: 0 var(--spacing-12);
+  border-radius: var(--radius-medium);
+  border: 1.5px solid var(--color-stroke-default);
+  background: var(--color-action-ghost);
+  font-family: var(--font-primary);
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-height);
+  color: var(--color-text-body);
+  transition: border-color .15s ease, box-shadow .15s ease;
+  box-sizing: border-box;
+}
+.lf-input::placeholder { color: var(--color-text-hint); }
+.lf-input:hover { border-color: var(--color-neutral-70); }
+.lf-input:focus-visible { outline: none; border-color: var(--color-stroke-focus); box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-stroke-focus) 35%, transparent); }
+.lf-input--has-icon { padding-left: 38px; }
+.lf-input--error { border-color: var(--color-stroke-error); }
+.lf-input:disabled { background: var(--color-neutral-20); color: var(--color-text-disabled); cursor: not-allowed; }
+.lf-input__icon { position: absolute; left: var(--spacing-12); display: inline-flex; color: var(--color-text-hint); pointer-events: none; }
+
+/* ---------------- SPLIT INPUT ---------------- */
+.lf-split {
+  display: flex; align-items: center; width: 100%; height: 32px; box-sizing: border-box;
+  border-radius: var(--radius-medium); border: 1.5px solid var(--color-stroke-default);
+  background: var(--color-action-ghost); transition: border-color .15s ease, box-shadow .15s ease;
+}
+.lf-split:hover { border-color: var(--color-neutral-70); }
+.lf-split:focus-within { border-color: var(--color-stroke-focus); box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-stroke-focus) 35%, transparent); }
+.lf-split--error { border-color: var(--color-stroke-error); }
+.lf-split--disabled { background: var(--color-neutral-20); cursor: not-allowed; }
+.lf-split__select { position: relative; flex-shrink: 0; height: 100%; }
+.lf-split__trigger {
+  display: flex; align-items: center; gap: var(--spacing-4); height: 100%;
+  padding: 0 var(--spacing-8) 0 var(--spacing-12); border: none; background: transparent; cursor: pointer;
+  border-radius: var(--radius-medium) 0 0 var(--radius-medium); color: var(--color-text-body);
+  font-family: var(--font-primary); transition: background .12s ease;
+}
+.lf-split__trigger:hover:not(:disabled) { background: var(--color-surface-secondary); }
+.lf-split__trigger:disabled { cursor: not-allowed; color: var(--color-text-disabled); }
+.lf-split__triggerlabel { font-size: var(--text-body-size); line-height: var(--text-body-height); white-space: nowrap; }
+.lf-split__chev { color: var(--color-text-body); transition: transform .15s ease; }
+.lf-split__chev--open { transform: rotate(180deg); }
+.lf-split__divider { width: 1px; align-self: stretch; margin: var(--spacing-4) 0; background: var(--color-stroke-default); flex-shrink: 0; }
+.lf-split__input {
+  flex: 1; min-width: 0; height: 100%; padding: 0 var(--spacing-12); border: none; background: transparent; outline: none;
+  font-family: var(--font-primary); font-size: var(--text-body-size); line-height: var(--text-body-height); color: var(--color-text-body);
+}
+.lf-split__input::placeholder { color: var(--color-text-hint); }
+.lf-split__input:disabled { color: var(--color-text-disabled); cursor: not-allowed; }
+.lf-split__menu {
+  position: absolute; left: 0; top: calc(100% + var(--spacing-4)); z-index: 50; min-width: 120px;
+  padding: var(--spacing-4); background: var(--color-surface-tertiary); border: 1px solid var(--color-stroke-default);
+  border-radius: var(--radius-medium); box-shadow: var(--shadow-card);
+}
+.lf-split__opt {
+  display: block; width: 100%; text-align: left; padding: var(--spacing-8) var(--spacing-12); border: none; background: transparent;
+  border-radius: var(--radius-small); cursor: pointer; font-family: var(--font-primary);
+  font-size: var(--text-body-size); line-height: var(--text-body-height); color: var(--color-text-body); white-space: nowrap;
+}
+.lf-split__opt:hover { background: var(--color-surface-secondary); }
+.lf-split__opt--selected { background: var(--color-surface-secondary); color: var(--color-action-primary); }
+
+/* ---------------- SLIDER ---------------- */
+.lf-slider { width: 100%; }
+.lf-slider .lf-label { margin-bottom: var(--spacing-8); }
+.lf-slider__row { display: flex; align-items: center; gap: var(--spacing-12); }
+.lf-slider__input {
+  width: 80px; height: 32px; padding: 0 var(--spacing-12); flex-shrink: 0; text-align: center; box-sizing: border-box;
+  border-radius: var(--radius-medium); border: 1.5px solid var(--color-stroke-default); background: var(--color-action-ghost);
+  font-family: var(--font-primary); font-size: var(--text-body-size); line-height: var(--text-body-height); color: var(--color-text-body);
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.lf-slider__input:hover { border-color: var(--color-neutral-70); }
+.lf-slider__input:focus-visible { outline: none; border-color: var(--color-stroke-focus); box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-stroke-focus) 35%, transparent); }
+.lf-slider__input:disabled { background: var(--color-neutral-20); color: var(--color-text-disabled); cursor: not-allowed; }
+.lf-slider__area { flex: 1; min-width: 0; }
+.lf-slider__track { position: relative; height: 8px; border-radius: var(--radius-full); cursor: pointer; }
+.lf-slider__track--disabled { cursor: not-allowed; opacity: .5; }
+.lf-slider__bg { position: absolute; inset: 0; background: var(--color-neutral-20); border-radius: var(--radius-full); }
+.lf-slider__fill { position: absolute; left: 0; top: 0; height: 100%; border-radius: var(--radius-full); background: var(--color-action-primary); }
+.lf-slider__fill--gradient { background: linear-gradient(to right, var(--color-blue-20) 0%, var(--color-blue-60) 100%); }
+.lf-slider__thumb {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; width: 20px; height: 20px;
+  background: var(--color-surface-tertiary); border-radius: 50%; box-shadow: var(--shadow-thumb); cursor: grab; transition: transform .1s ease;
+}
+.lf-slider__thumb:focus-visible { outline: none; box-shadow: var(--shadow-thumb), 0 0 0 3px color-mix(in srgb, var(--color-stroke-focus) 40%, transparent); }
+.lf-slider__thumb--dragging { cursor: grabbing; transform: translateY(-50%) scale(1.1); }
+.lf-help { margin: var(--spacing-4) 0 0; font-size: var(--text-body-sm-size); line-height: var(--text-body-sm-height); color: var(--color-text-hint); }
+.lf-help--error { color: var(--color-text-error); }
+
+/* ---------------- SELECT ---------------- */
+.lf-select { position: relative; width: 100%; }
+.lf-select__trigger {
+  width: 100%; height: 32px; padding: 0 var(--spacing-12);
+  display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-8);
+  border-radius: var(--radius-medium); border: 1.5px solid var(--color-stroke-default);
+  background: var(--color-surface-tertiary); cursor: pointer;
+  font-family: var(--font-primary); font-size: var(--text-body-size); line-height: var(--text-body-height);
+  color: var(--color-text-body); transition: border-color .15s ease, box-shadow .15s ease; box-sizing: border-box;
+}
+.lf-select__trigger:hover { border-color: var(--color-neutral-70); }
+.lf-select__trigger:focus-visible { outline: none; border-color: var(--color-stroke-focus); box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-stroke-focus) 35%, transparent); }
+.lf-select__trigger--placeholder { color: var(--color-text-hint); }
+.lf-select__trigger--open { border-color: var(--color-stroke-action-primary); }
+.lf-select__chev { transition: transform .15s ease; flex-shrink: 0; color: var(--color-text-body); }
+.lf-select__chev--open { transform: rotate(180deg); }
+.lf-select__menu {
+  position: absolute; z-index: 50; top: calc(100% + 4px); left: 0; min-width: 100%;
+  background: var(--color-surface-tertiary); border-radius: var(--radius-small);
+  box-shadow: var(--shadow-card); border: 1px solid var(--color-stroke-default);
+  padding: var(--spacing-4); max-height: 260px; overflow: auto;
+}
+.lf-select__value { flex: 1; min-width: 0; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lf-select__opt {
+  display: flex; align-items: center; gap: var(--spacing-8); min-height: 36px; padding: 0 var(--spacing-8);
+  border-radius: var(--radius-small); cursor: pointer; font-size: var(--text-body-size);
+  line-height: var(--text-body-height); color: var(--color-text-body); white-space: nowrap;
+}
+.lf-select__opt:hover { background: var(--color-surface-secondary); }
+.lf-select__opt--selected { color: var(--color-action-primary); }
+.lf-select__label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+/* Trailing meta (e.g. counts) */
+.lf-select__meta { margin-left: auto; padding-left: var(--spacing-12); color: var(--color-text-hint); font-size: var(--text-body-sm-size); flex-shrink: 0; }
+/* Avatar variant — circular image */
+.lf-select__avatar { width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0; object-fit: cover; border: 1px solid var(--color-stroke-default); background: var(--color-surface-tertiary); }
+/* Icon variant — leading glyph */
+.lf-select__icon { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; flex-shrink: 0; color: var(--color-text-body); }
+.lf-select__icon svg { width: 100%; height: 100%; }
+/* Multiselect — checkbox marker */
+.lf-select__check {
+  width: 18px; height: 18px; border-radius: var(--radius-small); flex-shrink: 0; position: relative;
+  border: 1.5px solid var(--color-stroke-default); background: var(--color-surface-tertiary); transition: all .12s ease;
+}
+.lf-select__opt:hover .lf-select__check { border-color: var(--color-blue-60); }
+.lf-select__opt[aria-selected="true"] .lf-select__check { border-color: var(--color-blue-90); background: var(--color-blue-90); }
+.lf-select__opt[aria-selected="true"] .lf-select__check::after {
+  content: ""; position: absolute; left: 5px; top: 1px; width: 4px; height: 9px;
+  border: solid var(--color-neutral-00); border-width: 0 2px 2px 0; transform: rotate(45deg);
+}
+
+/* ---------------- CHECKBOX & RADIO ---------------- */
+.lf-choice { display: inline-flex; align-items: flex-start; gap: var(--spacing-8); }
+.lf-choice__label { font-size: var(--text-body-sm-size); line-height: var(--text-body-sm-height); color: var(--color-text-body); cursor: pointer; user-select: none; }
+.lf-checkbox, .lf-radio {
+  appearance: none; -webkit-appearance: none; width: 20px; height: 20px; margin: 0;
+  border: 1.5px solid var(--color-stroke-default); background: var(--color-surface-tertiary);
+  cursor: pointer; transition: all .12s ease; flex-shrink: 0; position: relative;
+}
+.lf-checkbox { border-radius: var(--radius-small); }
+.lf-radio { border-radius: 50%; }
+.lf-checkbox:hover, .lf-radio:hover { border-color: var(--color-blue-60); }
+.lf-checkbox:focus-visible, .lf-radio:focus-visible { outline: none; box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-stroke-focus) 40%, transparent); }
+.lf-checkbox:checked { border-color: var(--color-blue-90); }
+.lf-checkbox:checked::after {
+  content: ""; position: absolute; left: 50%; top: 46%; width: 4.5px; height: 9px;
+  border: solid var(--color-blue-90); border-width: 0 1.5px 1.5px 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.lf-checkbox:indeterminate { border-color: var(--color-blue-90); }
+.lf-checkbox:indeterminate::after { content: ""; position: absolute; left: 50%; top: 50%; width: 10px; height: 0; border-top: 1.5px solid var(--color-blue-90); transform: translate(-50%, -50%); }
+.lf-radio:checked { border-width: 6px; border-color: var(--color-blue-90); }
+.lf-checkbox:disabled, .lf-radio:disabled { background: var(--color-neutral-20); border-color: var(--color-stroke-default); cursor: not-allowed; }
+
+/* ---------------- TOGGLE ---------------- */
+.lf-toggle { position: relative; display: inline-block; width: 44px; height: 24px; flex-shrink: 0; }
+.lf-toggle input { position: absolute; opacity: 0; width: 0; height: 0; }
+.lf-toggle__track { position: absolute; inset: 0; border-radius: var(--radius-full); background: var(--color-neutral-50); transition: background .15s ease; cursor: pointer; }
+.lf-toggle input:not(:checked):not(:disabled) ~ .lf-toggle__track:hover { background: var(--color-blue-10); }
+.lf-toggle__thumb { position: absolute; left: 2px; top: 2px; width: 20px; height: 20px; border-radius: 50%; background: var(--color-neutral-00); transition: transform .15s ease; pointer-events: none; }
+.lf-toggle input:checked ~ .lf-toggle__track { background: var(--color-action-primary); }
+.lf-toggle input:checked ~ .lf-toggle__thumb { transform: translateX(20px); }
+.lf-toggle input:focus-visible ~ .lf-toggle__track { box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-stroke-focus) 40%, transparent); }
+.lf-toggle input:disabled ~ .lf-toggle__track { background: var(--color-neutral-50); opacity: .6; cursor: not-allowed; }
+.lf-toggle input:disabled ~ .lf-toggle__thumb { background: var(--color-neutral-50); }
+.lf-toggle:has(input:disabled) { cursor: not-allowed; }
+.lf-choice__label--disabled { color: var(--color-text-disabled); cursor: not-allowed; }
+
+/* ---------------- CHOICE CHIP ---------------- */
+.lf-chip {
+  display: inline-flex; align-items: center; gap: var(--spacing-8); padding: var(--spacing-4) var(--spacing-8);
+  border-radius: var(--radius-medium); border: 1px solid var(--color-stroke-default);
+  background: var(--color-action-ghost); color: var(--color-text-body); cursor: pointer;
+  font-family: var(--font-primary); font-size: var(--text-body-size); line-height: var(--text-body-height);
+  transition: background .15s ease, border-color .15s ease;
+}
+.lf-chip:hover { background: var(--color-action-ghost-hover); border-color: var(--color-neutral-70); }
+.lf-chip--selected { background: var(--color-blue-20); border-color: var(--color-blue-60); color: var(--color-blue-90); }
+.lf-chip:focus-visible { outline: none; box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-stroke-focus) 40%, transparent); }
+.lf-chip:disabled { background: var(--color-neutral-20); color: var(--color-text-disabled); cursor: not-allowed; border-color: var(--color-stroke-default); }
+
+/* ---------------- TABS ---------------- */
+.lf-tabs { display: flex; align-items: center; }
+.lf-tab {
+  position: relative; display: inline-flex; align-items: center; gap: var(--spacing-8);
+  padding: var(--spacing-12) var(--spacing-16) 6px; background: none; border: none; cursor: pointer;
+  font-family: var(--font-primary); font-size: var(--text-body-size); line-height: var(--text-body-height);
+  font-weight: var(--text-body-weight); color: var(--color-text-body); transition: color .15s ease;
+}
+.lf-tab:hover { color: var(--color-action-primary); }
+.lf-tab--active { font-weight: var(--text-body-bold-weight); box-shadow: inset 0 -2px 0 var(--color-action-primary); }
+.lf-tab:disabled { opacity: .5; cursor: not-allowed; color: var(--color-text-body); }
+/* Reserve the bold (active) width so tabs don't shift when clicked */
+.lf-tab__label { display: inline-flex; flex-direction: column; align-items: center; }
+.lf-tab__label::after {
+  content: attr(data-label);
+  font-weight: var(--text-body-bold-weight);
+  height: 0; overflow: hidden; visibility: hidden; pointer-events: none;
+}
+
+/* ---------------- PAGE HEADER ---------------- */
+.lf-pagehead { display: flex; flex-direction: column; gap: var(--spacing-8); width: 100%; }
+.lf-pagehead__row { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--spacing-24); }
+.lf-pagehead__heading { display: flex; align-items: baseline; gap: var(--spacing-12); min-width: 0; flex-wrap: wrap; }
+.lf-pagehead__title { margin: 0; font-size: var(--text-h2-size); line-height: var(--text-h2-height); font-weight: var(--text-h2-weight); color: var(--color-text-body); letter-spacing: -0.01em; }
+.lf-pagehead__sep { align-self: center; width: 1px; height: 18px; background: var(--color-stroke-default); flex-shrink: 0; }
+.lf-pagehead__sub { font-size: var(--text-body-size); line-height: var(--text-body-height); color: var(--color-text-hint); }
+.lf-pagehead__actions { display: flex; align-items: center; gap: var(--spacing-8); flex-shrink: 0; }
+.lf-pagehead__nav { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-24); margin-top: var(--spacing-4); flex-wrap: wrap; }
+.lf-pagehead__nav-start { display: flex; align-items: center; min-width: 0; }
+.lf-pagehead__nav-end { display: flex; align-items: center; margin-left: auto; flex-shrink: 0; }
+.lf-pagehead__tabs { margin-left: calc(-1 * var(--spacing-16)); }
+
+/* ---------------- SEGMENTED CONTROL ---------------- */
+.lf-seg { position: relative; display: inline-flex; align-items: center; gap: 2px; padding: 2px; border-radius: var(--radius-medium); background: var(--color-surface-secondary); }
+.lf-seg--primary { background: var(--color-surface-primary); }
+.lf-seg__btn {
+  position: relative; z-index: 1; display: inline-flex; align-items: center; justify-content: center; gap: var(--spacing-8);
+  height: 32px; padding: 0 var(--spacing-16); border: none; background: none; cursor: pointer; border-radius: var(--radius-medium);
+  font-family: var(--font-primary); font-size: var(--text-body-size); line-height: var(--text-body-height);
+  color: var(--color-text-hint); transition: color .15s ease;
+}
+.lf-seg__btn:hover { color: var(--color-text-body); }
+.lf-seg__btn--active { color: var(--color-blue-90); font-weight: var(--text-body-bold-weight); background: var(--color-action-ghost); box-shadow: var(--shadow-card); }
+.lf-seg__btn--sm { height: 28px; padding: 0 var(--spacing-12); font-size: var(--text-body-sm-size); }
+
+/* ---------------- TOOLBAR ---------------- */
+.lf-toolbar {
+  display: inline-flex; align-items: center; gap: var(--spacing-16);
+  width: fit-content;
+  padding: var(--spacing-8) var(--spacing-24);
+  background: var(--color-surface-secondary); border-radius: var(--radius-medium); box-shadow: var(--shadow-toolbar);
+}
+.lf-toolbar--floating { position: sticky; bottom: 16px; margin: 16px auto 0; width: fit-content; z-index: 20; }
+.lf-toolbar__group { display: inline-flex; align-items: center; gap: var(--spacing-8); }
+.lf-toolbar__divider { width: 1px; align-self: stretch; min-height: 24px; margin: 0 var(--spacing-8); background: var(--color-stroke-default); flex-shrink: 0; }
+.lf-toolbar__label { padding: 0 var(--spacing-8); font-size: var(--text-body-sm-size); color: var(--color-text-hint); white-space: nowrap; }
+
+/* ---------------- AVATAR ---------------- */
+.lf-avatar { position: relative; border-radius: 50%; overflow: hidden; background: var(--color-neutral-20); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid var(--color-stroke-default); }
+.lf-avatar--small { width: 24px; height: 24px; }
+.lf-avatar--medium { width: 32px; height: 32px; }
+.lf-avatar--large { width: 48px; height: 48px; }
+.lf-avatar img { width: 100%; height: 100%; object-fit: contain; background: #fff; }
+.lf-avatar__fallback { font-size: var(--text-body-sm-size); font-weight: 500; color: var(--color-text-body); }
+.lf-avatar-group { display: inline-flex; align-items: center; }
+.lf-avatar-group > * { margin-left: -8px; box-shadow: 0 0 0 2px var(--color-surface-tertiary); }
+.lf-avatar-group > *:first-child { margin-left: 0; }
+
+/* ---------------- TOOLTIP ---------------- */
+.lf-tooltip-wrap { position: relative; display: inline-flex; }
+.lf-tooltip {
+  position: absolute; z-index: 60; padding: var(--spacing-8) var(--spacing-12); border-radius: var(--radius-medium);
+  background: var(--color-surface-inverse); color: var(--color-text-inverse); pointer-events: none;
+  font-size: var(--text-body-sm-size); line-height: var(--text-body-sm-height); white-space: nowrap;
+  opacity: 0; transition: opacity .15s ease;
+}
+.lf-tooltip--visible { opacity: 1; }
+.lf-tooltip__title { font-weight: var(--text-body-bold-weight); margin-bottom: 2px; }
+/* Caret — rotated square matching the tooltip fill */
+.lf-tooltip::before { content: ""; position: absolute; width: 8px; height: 8px; background: var(--color-surface-inverse); transform: rotate(45deg); }
+.lf-tooltip--top { bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); }
+.lf-tooltip--top::before { bottom: -4px; left: 50%; margin-left: -4px; }
+.lf-tooltip--bottom { top: calc(100% + 8px); left: 50%; transform: translateX(-50%); }
+.lf-tooltip--bottom::before { top: -4px; left: 50%; margin-left: -4px; }
+.lf-tooltip--left { right: calc(100% + 8px); top: 50%; transform: translateY(-50%); }
+.lf-tooltip--left::before { right: -4px; top: 50%; margin-top: -4px; }
+.lf-tooltip--right { left: calc(100% + 8px); top: 50%; transform: translateY(-50%); }
+.lf-tooltip--right::before { left: -4px; top: 50%; margin-top: -4px; }
+/* Alignment — caret centered (default) or pinned to a corner.
+   top/bottom: start = left edge, end = right edge. left/right: start = top edge, end = bottom edge. */
+.lf-tooltip--top.lf-tooltip--align-start, .lf-tooltip--bottom.lf-tooltip--align-start { left: 0; transform: none; }
+.lf-tooltip--top.lf-tooltip--align-start::before, .lf-tooltip--bottom.lf-tooltip--align-start::before { left: 12px; margin-left: 0; }
+.lf-tooltip--top.lf-tooltip--align-end, .lf-tooltip--bottom.lf-tooltip--align-end { left: auto; right: 0; transform: none; }
+.lf-tooltip--top.lf-tooltip--align-end::before, .lf-tooltip--bottom.lf-tooltip--align-end::before { left: auto; right: 12px; margin-left: 0; }
+.lf-tooltip--left.lf-tooltip--align-start, .lf-tooltip--right.lf-tooltip--align-start { top: 0; transform: none; }
+.lf-tooltip--left.lf-tooltip--align-start::before, .lf-tooltip--right.lf-tooltip--align-start::before { top: 12px; margin-top: 0; }
+.lf-tooltip--left.lf-tooltip--align-end, .lf-tooltip--right.lf-tooltip--align-end { top: auto; bottom: 0; transform: none; }
+.lf-tooltip--left.lf-tooltip--align-end::before, .lf-tooltip--right.lf-tooltip--align-end::before { top: auto; bottom: 12px; margin-top: 0; }
+
+/* ---------------- PROGRESS BAR ---------------- */
+.lf-progress { width: 100%; }
+.lf-progress__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--spacing-8); }
+.lf-progress__label { font-size: var(--text-body-sm-size); line-height: var(--text-body-sm-height); font-weight: var(--text-body-sm-weight); color: var(--color-text-body); }
+.lf-progress__pct { font-size: var(--text-body-sm-size); line-height: var(--text-body-sm-height); font-weight: var(--text-body-sm-bold-weight); color: var(--color-text-hint); font-family: var(--font-primary); font-variant-numeric: tabular-nums; }
+.lf-progress__track { width: 100%; height: 8px; background: var(--color-neutral-50); border: 1px solid var(--color-stroke-default); border-radius: var(--radius-full); overflow: hidden; }
+.lf-progress__fill { height: 100%; background: var(--color-action-primary); border-radius: var(--radius-full); transition: width .3s ease; }
+
+/* ---------------- AI INSIGHTS ---------------- */
+/* Lavender AI-explanation panel: Sparkles header + indented insight lines.
+   Surface + accent are the AI tokens — the only sanctioned purple moment. */
+.lf-insights { display: flex; flex-direction: column; gap: var(--spacing-12); padding: var(--spacing-16); border-radius: var(--radius-large); background: var(--color-surface-ai); }
+.lf-insights__head { display: flex; align-items: center; gap: var(--spacing-12); }
+.lf-insights__icon { display: inline-flex; flex-shrink: 0; color: var(--color-ai-accent); }
+.lf-insights__title { margin: 0; font-size: var(--text-title-size); line-height: var(--text-title-height); font-weight: var(--text-title-weight); color: var(--color-text-body); }
+.lf-insights__list { display: flex; flex-direction: column; gap: var(--spacing-4); margin: 0; padding: 0 0 0 var(--spacing-32); list-style: none; }
+.lf-insights__item { font-size: var(--text-body-sm-size); line-height: var(--text-body-sm-height); color: var(--color-text-body); font-variant-numeric: tabular-nums; }
+.lf-insights__label { font-weight: var(--text-body-sm-bold-weight); }
+
+.lf-insights--inline { flex-direction: row; align-items: flex-start; gap: var(--spacing-8); padding: var(--spacing-12) var(--spacing-16); border-radius: var(--radius-medium); position: relative; }
+.lf-insights--inline .lf-insights__icon { margin-top: 1px; }
+.lf-insights__text { margin: 0; padding-right: var(--spacing-24); font-size: var(--text-body-size); line-height: var(--text-body-height); color: var(--color-text-body); }
+.lf-insights__loading { font-size: var(--text-body-size); color: var(--color-text-hint); }
+.lf-insights__dismiss { position: absolute; top: var(--spacing-8); right: var(--spacing-8); border: none; background: transparent; color: var(--color-text-hint); cursor: pointer; padding: 4px; border-radius: var(--radius-small); display: inline-flex; }
+.lf-insights__dismiss:hover { background: var(--color-surface-secondary); color: var(--color-text-body); }
+
+/* ---------------- SEARCH BAR ---------------- */
+/* Unified search + ask affordance: a compact bottom-border input that opens a
+   dropdown on focus (Suggested searches + Ask the assistant), and becomes a
+   threaded assistant chat when a question is submitted. Layout is inline in
+   SearchBar.jsx; these rules cover hover + the thinking spinner only. */
+.lf-searchbar__input::placeholder { color: var(--color-text-hint); }
+.lf-suggest-row:hover { background: var(--color-neutral-10); }
+@keyframes lf-spin { to { transform: rotate(360deg); } }
+
+/* ---------------- FILTER PANEL ---------------- */
+.lf-filterpanel { background: var(--color-surface-tertiary); border-radius: var(--radius-medium); padding: var(--spacing-16) var(--spacing-16) var(--spacing-20); }
+.lf-filterpanel__head { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-16); flex-wrap: wrap; }
+.lf-filterpanel__title-group { display: flex; align-items: center; gap: var(--spacing-16); flex-wrap: wrap; min-width: 0; }
+.lf-filterpanel__title { margin: 0; display: flex; align-items: baseline; gap: var(--spacing-4); font-size: var(--text-h2-size); line-height: var(--text-h2-height); font-weight: var(--text-h2-weight); color: var(--color-text-body); }
+.lf-filterpanel__count { font-size: var(--text-body-size); color: var(--color-text-hint); font-weight: 400; }
+.lf-filterpanel__trigger { display: inline-flex; align-items: center; gap: var(--spacing-8); height: 32px; padding: 0 var(--spacing-16); border: 1.5px solid var(--color-action-primary); border-radius: var(--radius-medium); background: var(--color-action-secondary); color: var(--color-action-primary); font-family: var(--font-primary); font-size: var(--text-body-size); font-weight: 600; cursor: pointer; transition: all .12s ease; flex-shrink: 0; }
+.lf-filterpanel__trigger:hover { color: var(--color-action-tertiary); border-color: var(--color-action-tertiary); }
+.lf-filterpanel__divider { width: 1px; height: 24px; background: var(--color-stroke-default); flex-shrink: 0; }
+.lf-filterpanel__quick { display: flex; align-items: center; gap: var(--spacing-24); flex-wrap: wrap; }
+.lf-filterpanel__actions { display: flex; align-items: center; gap: var(--spacing-16); flex-shrink: 0; }
+.lf-filterpanel__disclosure { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 1.5px solid var(--color-stroke-default); border-radius: var(--radius-medium); background: var(--color-surface-tertiary); color: var(--color-text-body); cursor: pointer; transition: all .12s ease; flex-shrink: 0; }
+.lf-filterpanel__disclosure:hover { border-color: var(--color-stroke-action-secondary); }
+.lf-filterpanel__disclosure[aria-expanded="true"] svg { transform: rotate(180deg); }
+.lf-filterpanel__disclosure svg { transition: transform .15s ease; }
+.lf-filterpanel__chips { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-8); margin-top: var(--spacing-16); }
+.lf-filterpanel__chip { display: inline-flex; align-items: center; gap: var(--spacing-8); height: 28px; padding: 0 var(--spacing-12); border-radius: var(--radius-full); background: var(--color-surface-categorical-purple); color: var(--color-text-categorical-purple); font-family: var(--font-primary); font-size: var(--text-body-sm-size); font-weight: 500; border: none; }
+.lf-filterpanel__chip button { display: inline-flex; align-items: center; border: none; background: transparent; color: inherit; cursor: pointer; padding: 0; opacity: .7; }
+.lf-filterpanel__chip button:hover { opacity: 1; }
+.lf-filterpanel__chip-count { font-weight: 600; }
+.lf-filterpanel__chip--more { background: var(--color-surface-secondary); color: var(--color-text-body); cursor: pointer; }
+.lf-filterpanel__chip--more:hover { background: var(--color-surface-hover); }
+.lf-filterpanel__clear { border: none; background: transparent; color: var(--color-text-hint); font-family: var(--font-primary); font-size: var(--text-body-sm-size); cursor: pointer; text-decoration: underline; padding: 0 0 0 var(--spacing-4); }
+.lf-filterpanel__clear:hover { color: var(--color-text-body); }
+.lf-filterpanel__body { display: flex; align-items: flex-end; gap: var(--spacing-16); flex-wrap: wrap; margin-top: var(--spacing-16); padding-top: var(--spacing-16); border-top: 1px solid var(--color-neutral-20); }
+.lf-filterpanel__body .lf-field { width: auto; }
+
+/* ---------------- STEPPER ---------------- */
+/* plain (default) = flat inline trail, no pill fill (PageHeader nav row).
+   secondary/primary = each step wrapped in a Surface pill (dense modal headers). */
+.lf-stepper { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-4); }
+.lf-stepper__step { display: flex; align-items: center; gap: var(--spacing-4); }
+.lf-stepper__pill { display: inline-flex; align-items: center; gap: var(--spacing-4); padding: var(--spacing-4) var(--spacing-8) var(--spacing-4) var(--spacing-4); border-radius: var(--radius-small); }
+.lf-stepper--secondary .lf-stepper__pill { background: var(--color-surface-secondary); }
+.lf-stepper--primary .lf-stepper__pill { background: var(--color-surface-primary); }
+.lf-stepper--plain .lf-stepper__pill { background: transparent; padding: var(--spacing-4) var(--spacing-4) var(--spacing-4) var(--spacing-2); }
+.lf-stepper__dot { width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; }
+.lf-stepper__label { font-size: var(--text-body-sm-size); line-height: var(--text-body-sm-height); color: var(--color-text-body); white-space: nowrap; }
+.lf-stepper__div { width: 8px; height: 1.5px; background: var(--color-stroke-default); border-radius: 1px; }
+/* Condensed — numbered circles, no labels (Modal headers). */
+.lf-stepper--condensed { gap: var(--spacing-8); }
+.lf-stepper--condensed .lf-stepper__step { gap: var(--spacing-8); }
+.lf-stepper__num { width: 20px; height: 20px; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 11px; font-weight: var(--text-body-sm-bold-weight); font-variant-numeric: tabular-nums; box-sizing: border-box; }
+.lf-stepper__num[data-state="upcoming"] { border: 1.5px solid var(--color-stroke-default); color: var(--color-text-hint); background: transparent; }
+.lf-stepper__num[data-state="current"] { background: var(--color-text-success); color: var(--color-neutral-00); }
+.lf-stepper__num[data-state="done"] { background: var(--color-text-success); color: var(--color-neutral-00); }
+
+/* ---------------- DIVIDER ---------------- */
+.lf-divider { border: none; background: var(--color-stroke-default); }
+.lf-divider--h { width: 100%; height: 1px; margin: 0; }
+.lf-divider--v { width: 1px; align-self: stretch; min-height: 16px; }
+/* Labeled divider — centered text with a rule on each side */
+.lf-divider-labeled { display: flex; align-items: center; gap: var(--spacing-16); width: 100%; }
+.lf-divider-labeled__rule { flex: 1; height: 1px; background: var(--color-stroke-default); }
+.lf-divider-labeled__label {
+  flex-shrink: 0; color: var(--color-text-hint); text-transform: uppercase; letter-spacing: .06em;
+  font-size: var(--text-body-sm-size); line-height: var(--text-body-sm-height); font-weight: var(--text-body-sm-bold-weight);
+}

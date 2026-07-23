@@ -1,36 +1,44 @@
 import './Button.css';
 
 /**
- * Button — from the Flux Design System (Luma fintech).
+ * Button — Flux Design System (Luma fintech).
  *
- * Two modes controlled by the `iconOnly` prop:
- *  - false (default): pill-shaped label button with optional leading icon
- *  - true: square icon-only circle button; `aria-label` is required
+ * A single atomic button component covering all use cases:
+ * pill label buttons, icon-only circles, and small icon actions.
  *
  * Props:
- *   label      {string}    Button text (ignored when iconOnly=true)
- *   iconOnly   {boolean}   Renders the compact icon-only variant
- *   icon       {ReactNode} SVG/element rendered inside the button
- *   aria-label {string}    Accessible label (required when iconOnly=true)
+ *   label      {string}                           Button text (ignored when iconOnly=true)
+ *   icon       {ReactNode}                        Icon element rendered inside the button
+ *   iconOnly   {boolean}                          Renders icon-only variant; aria-label is required
+ *   variant    {'primary'|'secondary'|'tertiary'} Visual style (default: 'primary')
+ *   size       {'medium'|'small'}                 Size scale (default: 'medium')
  *   disabled   {boolean}
  *   onClick    {function}
+ *   aria-label {string}                           Required when iconOnly=true
  */
 export function Button({
   label = 'Apply',
-  iconOnly = false,
   icon = null,
+  iconOnly = false,
+  variant = 'primary',
+  size = 'medium',
   disabled = false,
   onClick,
   'aria-label': ariaLabel,
 }) {
-  const baseClass = iconOnly
-    ? 'ryb ryb--icon-only'
-    : 'ryb ryb--label';
+  const classes = [
+    'btn',
+    `btn--${variant}`,
+    `btn--${size}`,
+    iconOnly && 'btn--icon-only',
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <button
       type="button"
-      className={baseClass}
+      className={classes}
       disabled={disabled}
       onClick={onClick}
       aria-label={iconOnly ? ariaLabel : undefined}
@@ -39,7 +47,7 @@ export function Button({
         icon
       ) : (
         <>
-          {icon && <span className="ryb__icon" aria-hidden="true">{icon}</span>}
+          {icon && <span className="btn__icon" aria-hidden="true">{icon}</span>}
           {label}
         </>
       )}

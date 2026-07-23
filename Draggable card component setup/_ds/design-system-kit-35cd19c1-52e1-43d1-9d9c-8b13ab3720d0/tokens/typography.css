@@ -1,0 +1,69 @@
+/* ============================================================
+   Flux Design System — Typography Tokens
+   IBM Plex Sans (UI + financial data, with tabular figures).
+   Weights: 400 Regular / 500 Medium / 600 SemiBold.
+   ============================================================ */
+
+:root {
+  /* Font families */
+  --font-primary: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace; /* financial data: metric values, currency, rates */
+
+  /* Display — hero / large headings */
+  --text-display-lg-size: 32px;
+  --text-display-lg-height: 40px;
+  --text-display-lg-weight: 600;
+
+  --text-display-md-size: 24px;
+  --text-display-md-height: 32px;
+  --text-display-md-weight: 600;
+
+  --text-display-sm-size: 20px;
+  --text-display-sm-height: 28px;
+  --text-display-sm-weight: 600;
+
+  /* Headings */
+  --text-h1-size: 24px;
+  --text-h1-height: 32px;
+  --text-h1-weight: 600;
+
+  --text-h2-size: 20px;
+  --text-h2-height: 32px;
+  --text-h2-weight: 600;
+
+  --text-h3-size: 16px;
+  --text-h3-height: 24px;
+  --text-h3-weight: 400;
+
+  /* Title — card titles, labeled sections */
+  --text-title-size: 16px;
+  --text-title-height: 32px;
+  --text-title-weight: 500;
+
+  /* Title (action) — inline link-style title, e.g. "View all activity" */
+  --text-title-action-size: 16px;
+  --text-title-action-height: 32px;
+  --text-title-action-weight: 500;
+
+  /* Body — default (90% of text) */
+  --text-body-size: 14px;
+  --text-body-height: 20px;
+  --text-body-weight: 400;
+
+  --text-body-bold-size: 14px;
+  --text-body-bold-height: 20px;
+  --text-body-bold-weight: 600;
+
+  --text-body-sm-size: 12px;
+  --text-body-sm-height: 16px;
+  --text-body-sm-weight: 400;
+
+  --text-body-sm-bold-size: 12px;
+  --text-body-sm-bold-height: 16px;
+  --text-body-sm-bold-weight: 600;
+
+  /* Caption — timestamps, fine print */
+  --text-caption-size: 10px;
+  --text-caption-height: 14px;
+  --text-caption-weight: 500;
+}

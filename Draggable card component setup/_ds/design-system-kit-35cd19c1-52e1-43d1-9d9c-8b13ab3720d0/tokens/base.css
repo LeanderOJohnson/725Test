@@ -1,0 +1,71 @@
+/* ============================================================
+   Flux Design System — Base Element Styles
+   Sensible defaults so consumers get correct typography, page
+   surface, and body color out of the box.
+   ============================================================ */
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-surface-primary);
+  color: var(--color-text-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1 {
+  font-size: var(--text-h1-size);
+  line-height: var(--text-h1-height);
+  font-weight: var(--text-h1-weight);
+  color: var(--color-text-body);
+}
+
+h2 {
+  font-size: var(--text-h2-size);
+  line-height: var(--text-h2-height);
+  font-weight: var(--text-h2-weight);
+  color: var(--color-text-body);
+}
+
+h3 {
+  font-size: var(--text-h3-size);
+  line-height: var(--text-h3-height);
+  font-weight: var(--text-h3-weight);
+  color: var(--color-text-body);
+}
+
+p {
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-height);
+  font-weight: var(--text-body-weight);
+  color: var(--color-text-body);
+}
+
+label {
+  font-size: var(--text-body-sm-size);
+  line-height: var(--text-body-sm-height);
+  font-weight: var(--text-body-sm-weight);
+  color: var(--color-text-body);
+}
+
+button {
+  font-family: var(--font-primary);
+}
+
+input,
+textarea,
+select {
+  font-family: var(--font-primary);
+}
+
+/* Financial data: IBM Plex Mono with tabular figures */
+.font-mono,
+[data-mono] {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Selected table row — specificity-based, no !important */
+tbody tr[data-selected="true"] {
+  background-color: var(--color-blue-10);
+}

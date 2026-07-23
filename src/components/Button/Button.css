@@ -1,58 +1,110 @@
 /* ============================================================
-   RoundYellowButton — Flux Design System
+   Button — Flux Design System
    Tokens: colors.css · spacing.css · typography.css
    ============================================================ */
 
-/* Shared base */
-.ryb {
+/* Base */
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 400px;
   border: none;
-  border-radius: var(--radius-full);          /* 9999px — pill/circle */
-  background: var(--color-yellow-50);         /* #fcd34d */
-  color: var(--color-yellow-90);              /* #806c04 */
+  border-radius: var(--radius-full);        /* pill / circle */
   font-family: var(--font-primary);
-  font-size: var(--text-body-size);           /* 14px */
-  font-weight: 400;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
   cursor: pointer;
-  transition: background 120ms ease;
-  /* Reset browser defaults */
+  transition: background 120ms ease, color 120ms ease;
   -webkit-appearance: none;
   appearance: none;
+  white-space: nowrap;
 }
 
-.ryb:hover:not(:disabled) {
-  background: var(--color-yellow-20);         /* #f6ec9e */
-}
-
-.ryb:focus-visible {
+.btn:focus-visible {
   outline: 2px solid var(--color-stroke-focus);
   outline-offset: 2px;
 }
 
-.ryb:disabled {
-  background: var(--color-action-disabled);   /* neutral-20 */
-  color: var(--color-text-disabled);          /* neutral-50 */
+.btn:disabled {
+  background: var(--color-action-disabled);
+  color: var(--color-text-disabled);
   cursor: not-allowed;
 }
 
-/* Pill label variant */
-.ryb--label {
-  gap: var(--spacing-8);
-  padding: 0 var(--spacing-24);              /* 0 24px */
+/* ── Sizes ───────────────────────────────────────────────── */
+
+/* Medium — 40px tall, default */
+.btn--medium {
+  height: 40px;
+  font-size: var(--text-body-size);         /* 14px */
 }
 
-/* Icon-only circle variant */
-.ryb--icon-only {
+.btn--medium:not(.btn--icon-only) {
+  gap: var(--spacing-8);
+  padding: 0 var(--spacing-24);
+}
+
+.btn--medium.btn--icon-only {
   width: 40px;
   padding: 0;
 }
 
-/* Leading icon inside label button */
-.ryb__icon {
+/* Small — 24px tall, used inside DraggableCard actions */
+.btn--small {
+  height: 24px;
+  font-size: var(--text-body-sm-size);      /* 12px */
+  border-radius: var(--radius-small);       /* 4px — square-ish for small */
+}
+
+.btn--small:not(.btn--icon-only) {
+  gap: var(--spacing-4);
+  padding: 0 var(--spacing-8);
+}
+
+.btn--small.btn--icon-only {
+  width: 24px;
+  padding: 0;
+}
+
+/* ── Variants ────────────────────────────────────────────── */
+
+/* Primary — yellow pill (original round yellow button) */
+.btn--primary {
+  background: var(--color-yellow-50);
+  color: var(--color-yellow-90);
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: var(--color-yellow-20);
+}
+
+/* Secondary — outlined / ghost for non-primary actions */
+.btn--secondary {
+  background: var(--color-neutral-00);
+  color: var(--color-action-tertiary);
+  border: 1px solid var(--color-stroke-action-secondary);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background: var(--color-surface-hover);
+  color: var(--color-blue-60);
+  border-color: var(--color-stroke-action-primary);
+}
+
+/* Tertiary — transparent ghost, used for icon actions in DraggableCard */
+.btn--tertiary {
+  background: transparent;
+  color: var(--color-neutral-70);
+  border-radius: var(--radius-small);       /* square feel for icon actions */
+}
+
+.btn--tertiary:hover:not(:disabled) {
+  background: var(--color-surface-hover);
+  color: var(--color-text-body);
+}
+
+/* ── Icon slot ───────────────────────────────────────────── */
+.btn__icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;

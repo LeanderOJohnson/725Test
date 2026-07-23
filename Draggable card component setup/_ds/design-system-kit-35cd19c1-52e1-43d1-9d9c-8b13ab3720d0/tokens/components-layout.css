@@ -1,0 +1,97 @@
+/* ============================================================
+   Flux Design System — Layout & Data Component Styles (v1.1)
+   Page structure (Page / PageContent / Section), MetricCard,
+   Table, ComparisonBar, SwimlaneMap, NavigationMenu.
+   ============================================================ */
+
+/* ---------------- PAGE STRUCTURE ----------------
+   Each layout component OWNS one surface:
+   Page → Surface.Primary · Section → Surface.Secondary · Card → Surface.Tertiary */
+.lf-page { min-height: 100vh; display: flex; flex-direction: column; background: var(--color-surface-primary); }
+.lf-pagecontent {
+  flex: 1; width: 100%; max-width: 1440px; margin: 0 auto; box-sizing: border-box;
+  padding: 0 var(--spacing-16) var(--spacing-32);
+  display: flex; flex-direction: column; gap: var(--spacing-8);
+}
+.lf-section { background: var(--color-surface-secondary); border-radius: var(--radius-medium); padding: var(--spacing-24); }
+.lf-section--pad-none { padding: 0; }
+.lf-section__title { margin: 0 0 var(--spacing-16); font-size: var(--text-h2-size); line-height: var(--text-h2-height); font-weight: var(--text-h2-weight); color: var(--color-text-body); }
+
+/* ---------------- METRIC CARD ----------------
+   Label + Display.Small monospace value with delta Badge inline.
+   Content sits directly on the card's 24px padding (no CardContent). */
+.lf-metric__label { color: var(--color-text-hint); font-size: var(--text-body-sm-size); line-height: var(--text-body-sm-height); font-weight: var(--text-body-sm-weight); }
+.lf-metric__row { margin-top: var(--spacing-4); display: flex; align-items: center; gap: var(--spacing-8); flex-wrap: wrap; }
+.lf-metric__value {
+  font-family: var(--font-mono);
+  font-size: var(--text-display-sm-size); line-height: var(--text-display-sm-height); font-weight: var(--text-display-sm-weight);
+  color: var(--color-text-body); font-variant-numeric: tabular-nums;
+}
+.lf-metric__timeframe { margin-top: var(--spacing-4); color: var(--color-text-hint); font-size: var(--text-body-sm-size); line-height: var(--text-body-sm-height); }
+
+/* ---------------- TABLE ---------------- */
+.lf-table-wrap { width: 100%; overflow-x: auto; border-radius: var(--radius-medium); background: var(--color-surface-tertiary); }
+.lf-table { width: 100%; border-collapse: collapse; }
+.lf-table th {
+  padding: var(--spacing-12) var(--spacing-16); text-align: left; background: var(--color-surface-tertiary);
+  font-size: var(--text-body-sm-size); line-height: var(--text-body-sm-height); font-weight: var(--text-body-sm-bold-weight);
+  color: var(--color-text-body); white-space: nowrap;
+}
+.lf-table thead tr { border-bottom: 1px solid var(--color-stroke-default); }
+.lf-table th.lf-table__th--sortable { cursor: pointer; user-select: none; }
+.lf-table th.lf-table__th--sortable:hover { background: var(--color-surface-secondary); }
+.lf-table__th-inner { display: flex; align-items: center; gap: var(--spacing-8); }
+.lf-table tbody tr { border-bottom: 1px solid var(--color-stroke-default); background: var(--color-surface-tertiary); transition: background-color .12s ease; }
+.lf-table tbody tr:not([data-selected="true"]):hover { background: var(--color-surface-secondary); }
+.lf-table tbody tr[data-selected="true"] { background: var(--color-blue-10); }
+.lf-table td { padding: var(--spacing-12) var(--spacing-16); font-size: var(--text-body-size); line-height: var(--text-body-height); color: var(--color-text-body); background: inherit; }
+.lf-table__empty { padding: var(--spacing-48) var(--spacing-16); text-align: center; color: var(--color-text-hint); font-size: var(--text-body-size); }
+/* Hover-only row actions (right side) */
+.lf-table__actions-td { position: relative; }
+.lf-table__actions { position: absolute; inset: 0; display: flex; align-items: center; justify-content: flex-end; gap: var(--spacing-8); padding: 0 var(--spacing-16); background: var(--color-surface-tertiary); }
+.lf-table__action { display: inline-flex; padding: 6px; border: none; background: transparent; border-radius: var(--radius-small); cursor: pointer; color: var(--color-text-body); transition: background .12s ease; }
+.lf-table__action:hover { background: var(--color-neutral-20); }
+.lf-table__action--approve { color: var(--color-text-success); }
+.lf-table__action--approve:hover { background: var(--color-green-10); }
+.lf-table__action--decline { color: var(--color-text-error); }
+.lf-table__action--decline:hover { background: var(--color-red-10); }
+
+/* ---------------- COMPARISON BAR ----------------
+   Two opposing magnitudes on one gradient bar (e.g. fees vs growth). */
+.lf-cbar { display: flex; flex-direction: column; gap: var(--spacing-2); }
+.lf-cbar__labels { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-8); font-size: 12px; line-height: 14px; font-weight: 600; }
+.lf-cbar__label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lf-cbar__track { height: 12px; border-radius: 6px; overflow: hidden; background: var(--color-neutral-20); }
+.lf-cbar__fill { height: 100%; border-radius: 6px; }
+
+/* ---------------- SWIMLANE MAP ----------------
+   Miniature overview of swimlane columns with a viewport indicator. */
+.lf-swimmap { position: relative; display: flex; align-items: center; gap: var(--spacing-4); height: 72px; padding: var(--spacing-8); box-sizing: border-box; border-radius: var(--radius-medium); background: var(--color-surface-secondary); }
+.lf-swimmap__border { position: absolute; inset: 0; border: 1px solid var(--color-stroke-default); border-radius: var(--radius-medium); pointer-events: none; }
+.lf-swimmap__indicator { position: absolute; top: 50%; transform: translateY(-50%); height: 64px; border-radius: 6px; background: var(--color-blue-60-08); transition: left .3s ease, width .3s ease; }
+.lf-swimmap__col { width: 24px; height: 56px; border-radius: var(--radius-small); flex-shrink: 0; position: relative; z-index: 1; background: var(--color-neutral-20); }
+
+/* ---------------- NAVIGATION MENU (mega menu panel) ----------------
+   Dark dropdown panel for TopNav: sectioned links + optional quick-link cards. */
+.lf-navmenu { background: var(--color-surface-inverse); border: 1px solid var(--color-blue-80); border-radius: var(--radius-medium); padding: var(--spacing-24); box-shadow: var(--shadow-card); }
+.lf-navmenu__grid { display: grid; gap: var(--spacing-32); }
+.lf-navmenu__section { display: flex; flex-direction: column; gap: var(--spacing-8); width: 148px; }
+.lf-navmenu__heading { margin: 0 0 var(--spacing-4); text-transform: uppercase; letter-spacing: .05em; color: var(--color-text-hint); font-size: var(--text-body-sm-size); line-height: var(--text-body-sm-height); font-weight: var(--text-body-sm-bold-weight); }
+.lf-navmenu__item {
+  height: 32px; max-width: 180px; display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-4);
+  padding: 0 var(--spacing-8); border: none; border-radius: var(--radius-small); background: transparent; cursor: pointer; text-align: left;
+  font-family: var(--font-primary); font-size: var(--text-title-size); line-height: var(--text-title-height); font-weight: var(--text-title-weight);
+  color: var(--color-neutral-10); transition: background .12s ease;
+}
+.lf-navmenu__item:hover { background: var(--color-blue-80); }
+.lf-navmenu__item--highlighted { color: var(--color-blue-20); }
+.lf-navmenu__item span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lf-navmenu__chev { flex-shrink: 0; display: inline-flex; }
+.lf-navmenu__quicklinks { margin-top: var(--spacing-24); display: grid; grid-template-columns: 1fr; gap: var(--spacing-8); }
+.lf-navmenu__quicklink {
+  width: 100%; text-align: left; padding: var(--spacing-8); border: 1px solid var(--color-neutral-70); border-radius: var(--radius-medium);
+  background: var(--color-surface-inverse); cursor: pointer; font-family: var(--font-primary); transition: border-color .12s ease;
+}
+.lf-navmenu__quicklink:hover { border-color: var(--color-neutral-10); }
+.lf-navmenu__quicklink-title { margin: 0 0 var(--spacing-2); color: var(--color-text-inverse); font-size: var(--text-body-size); line-height: var(--text-body-height); font-weight: var(--text-body-bold-weight); }
+.lf-navmenu__quicklink-desc { margin: 0; color: var(--color-text-inverse); font-size: var(--text-body-sm-size); line-height: var(--text-body-sm-height); font-weight: var(--text-body-sm-weight); overflow: hidden; text-overflow: ellipsis; }
